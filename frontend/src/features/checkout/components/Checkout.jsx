@@ -32,6 +32,7 @@ export const Checkout = () => {
     const theme=useTheme()
     const is900=useMediaQuery(theme.breakpoints.down(900))
     const is480=useMediaQuery(theme.breakpoints.down(480))
+    const is600=useMediaQuery(theme.breakpoints.down(600))
     
     useEffect(()=>{
         if(addressStatus==='fulfilled'){
@@ -60,17 +61,17 @@ export const Checkout = () => {
     }
 
   return (
-    <Stack flexDirection={'row'} p={2} rowGap={10} justifyContent={'center'} flexWrap={'wrap'} mb={'5rem'} mt={2} columnGap={4} alignItems={'flex-start'}>
+    <Stack flexDirection={is900 ? 'column' : 'row'} p={is600 ? 1 : 2} rowGap={10} justifyContent={'center'} flexWrap={'wrap'} mb={'5rem'} mt={2} columnGap={4} alignItems={is900 ? 'center' : 'flex-start'} width={is900 ? '100%' : 'auto'}>
 
         {/* left box */}
-        <Stack rowGap={4}>
+        <Stack rowGap={4} width={is900 ? '100%' : 'auto'} px={is600 ? 1 : 0}>
 
             {/* heading */}
             <Stack flexDirection={'row'} columnGap={is480?0.3:1} alignItems={'center'}>
                 <motion.div  whileHover={{x:-5}}>
                     <IconButton component={Link} to={"/cart"}><ArrowBackIcon fontSize={is480?"medium":'large'}/></IconButton>
                 </motion.div>
-                <Typography variant='h4'>Shipping Information</Typography>
+                <Typography variant={is480 ? 'h5' : 'h4'}>Shipping Information</Typography>
             </Stack>
 
             {/* address form */}
@@ -97,11 +98,11 @@ export const Checkout = () => {
                     </Stack>
 
                     <Stack flexDirection={'row'}>
-                        <Stack width={'100%'}>
+                        <Stack width={'100%'} mr={1}>
                             <Typography gutterBottom>City</Typography>
                             <TextField  {...register("city",{required:true})}/>
                         </Stack>
-                        <Stack width={'100%'}>
+                        <Stack width={'100%'} mr={1}>
                             <Typography gutterBottom>State</Typography>
                             <TextField  {...register("state",{required:true})}/>
                         </Stack>
@@ -125,22 +126,22 @@ export const Checkout = () => {
                     <Typography variant='body2' color={'text.secondary'}>Choose from existing Addresses</Typography>
                 </Stack>
 
-                <Grid container gap={2} width={is900?"auto":'50rem'} justifyContent={'flex-start'} alignContent={'flex-start'}>
+                <Grid container gap={2} width={is900?"100%":'50rem'} justifyContent={is900 ? 'center' : 'flex-start'} alignContent={'flex-start'}>
                         {
                             addresses.map((address,index)=>(
-                                <FormControl item >
-                                    <Stack key={address._id} p={is480?2:2} width={is480?'100%':'20rem'} height={is480?'auto':'15rem'}  rowGap={2} component={is480?Paper:Paper} elevation={1}>
+                                <FormControl item key={address._id}>
+                                    <Stack p={is480?1.5:2} width={is480?'100%':'20rem'} height={is480?'auto':'15rem'}  rowGap={2} component={Paper} elevation={1}>
 
                                         <Stack flexDirection={'row'} alignItems={'center'}>
                                             <Radio checked={selectedAddress===address} name='addressRadioGroup' value={selectedAddress} onChange={(e)=>setSelectedAddress(addresses[index])}/>
-                                            <Typography>{address.type}</Typography>
+                                            <Typography variant={is480 ? 'body2' : 'body1'}>{address.type}</Typography>
                                         </Stack>
 
                                         {/* details */}
                                         <Stack>
-                                            <Typography>{address.street}</Typography>
-                                            <Typography>{address.state}, {address.city}, {address.country}, {address.postalCode}</Typography>
-                                            <Typography>{address.phoneNumber}</Typography>
+                                            <Typography variant={is480 ? 'caption' : 'body2'}>{address.street}</Typography>
+                                            <Typography variant={is480 ? 'caption' : 'body2'}>{address.state}, {address.city}, {address.country}, {address.postalCode}</Typography>
+                                            <Typography variant={is480 ? 'caption' : 'body2'}>{address.phoneNumber}</Typography>
                                         </Stack>
                                     </Stack>
                                 </FormControl>
@@ -177,10 +178,10 @@ export const Checkout = () => {
         </Stack>
 
         {/* right box */}
-        <Stack  width={is900?'100%':'auto'} alignItems={is900?'flex-start':''}>
-            <Typography variant='h4'>Order summary</Typography>
+        <Stack  width={is900?'100%':'auto'} alignItems={is900?'center':''}  px={is600 ? 1 : 0}>
+            <Typography variant={is480 ? 'h5' : 'h4'}>Order summary</Typography>
             <Cart checkout={true}/>
-            <LoadingButton fullWidth loading={orderStatus==='pending'} variant='contained' onClick={handleCreateOrder} size='large'>Pay and order</LoadingButton>
+            <LoadingButton fullWidth={is600} loading={orderStatus==='pending'} variant='contained' onClick={handleCreateOrder} size='large'>Pay and order</LoadingButton>
         </Stack>
 
     </Stack>

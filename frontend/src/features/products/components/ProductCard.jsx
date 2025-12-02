@@ -67,16 +67,16 @@ export const ProductCard = ({
           }
           mt={is408 ? 2 : 0}
           elevation={1}
-          p={2}
+          p={is408 ? 1.5 : is488 ? 1.5 : is608 ? 1.75 : 2}
           width={
             is408
               ? "auto"
               : is488
-              ? "200px"
+              ? "180px"
               : is608
-              ? "240px"
+              ? "220px"
               : is752
-              ? "300px"
+              ? "280px"
               : is932
               ? "240px"
               : is1410
@@ -86,7 +86,15 @@ export const ProductCard = ({
           sx={{
             cursor: "pointer",
             borderRadius: 3,
-            height: "525px",
+            height: is408
+              ? "450px"
+              : is488
+              ? "480px"
+              : is608
+              ? "500px"
+              : is752
+              ? "520px"
+              : "525px",
             margin: "0 auto",
             backgroundColor: isAdminCard ? "tranparent" : "#c4c4d4",
             boxShadow: isAdminCard ? "none" : 7,
@@ -112,7 +120,12 @@ export const ProductCard = ({
                 alignItems={"center"}
                 justifyContent={"space-between"}
               >
-                <Typography variant="h6" fontWeight={400}>
+                <Typography
+                  variant={
+                    is408 ? "body2" : is488 ? "body1" : is608 ? "body1" : "h6"
+                  }
+                  fontWeight={400}
+                >
                   {title}
                 </Typography>
                 {!isAdminCard && (
@@ -131,7 +144,7 @@ export const ProductCard = ({
                   </motion.div>
                 )}
               </Stack>
-              <Typography color={"text.secondary"}>{brand}</Typography>
+                <Typography variant={is408 ? "caption" : "body2"} color={"text.secondary"}>{brand}</Typography>
             </Stack>
 
             <Stack
@@ -141,7 +154,7 @@ export const ProductCard = ({
                 alignItems: "center",
               }}
             >
-              <Typography>${price}</Typography>
+              <Typography variant={is408 ? "body2" : "body1"}>${price}</Typography>
               {!isWishlistCard
                 ? isProductAlreadyInCart
                   ? "Added to cart"
@@ -151,7 +164,7 @@ export const ProductCard = ({
                         whileTap={{ scale: 1 }}
                         onClick={(e) => handleAddToCart(e)}
                         style={{
-                          padding: "10px 15px",
+                          padding: is408 ? "6px 8px" : is488 ? "7px 10px" : is608 ? "8px 12px" : "10px 15px",
                           borderRadius: "3px",
                           outline: "none",
                           border: "none",
@@ -159,10 +172,12 @@ export const ProductCard = ({
                           backgroundColor: "black",
                           color: "white",
                           fontSize: is408
-                            ? ".9rem"
+                            ? ".65rem"
                             : is488
                             ? ".7rem"
                             : is500
+                            ? ".75rem"
+                            : is608
                             ? ".8rem"
                             : ".9rem",
                         }}

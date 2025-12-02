@@ -67,6 +67,7 @@ export const Wishlist = () => {
   const is1130 = useMediaQuery(theme.breakpoints.down(1130));
   const is642 = useMediaQuery(theme.breakpoints.down(642));
   const is480 = useMediaQuery(theme.breakpoints.down(480));
+  const is600 = useMediaQuery(theme.breakpoints.down(600));
 
   const handleAddRemoveFromWishlist = (e, productId) => {
     if (e.target.checked) {
@@ -162,6 +163,7 @@ export const Wishlist = () => {
       mt={is480 ? 3 : 5}
       mb={"14rem"}
       alignItems={"center"}
+      px={is600 ? 1 : 0}
     >
       {wishlistFetchStatus === "pending" ? (
         <Stack
@@ -173,7 +175,7 @@ export const Wishlist = () => {
           <Lottie animationData={loadingAnimation} />
         </Stack>
       ) : (
-        <Stack width={is1130 ? "auto" : "70rem"} rowGap={is480 ? 2 : 4}>
+        <Stack width={is1130 ? "100%" : "70rem"} rowGap={is480 ? 2 : 4} px={is600 ? 1 : 0}>
           {/* heading area and back button */}
           <Stack
             alignSelf={"flex-start"}
@@ -187,7 +189,7 @@ export const Wishlist = () => {
                 <ArrowBackIcon fontSize={is480 ? "medium" : "large"} />
               </IconButton>
             </motion.div>
-            <Typography variant="h4" fontWeight={500}>
+            <Typography variant={is480 ? "h5" : "h4"} fontWeight={500}>
               Your wishlist
             </Typography>
           </Stack>
@@ -199,14 +201,14 @@ export const Wishlist = () => {
               // empty wishlist animation
               <Stack
                 minHeight={"60vh"}
-                width={is642 ? "auto" : "40rem"}
+                width={is642 ? "100%" : "40rem"}
                 justifySelf={"center"}
                 alignSelf={"center"}
                 justifyContent={"center"}
                 alignItems={"center"}
               >
                 <Lottie animationData={emptyWishlistAnimation} />
-                <Typography variant="h6" fontWeight={300}>
+                <Typography variant={is480 ? "body2" : "h6"} fontWeight={300}>
                   You have no items in your wishlist
                 </Typography>
               </Stack>
@@ -214,10 +216,10 @@ export const Wishlist = () => {
               // wishlist grid
               <Grid
                 container
-                gap={1}
+                gap={2}
                 justifyContent={"center"}
                 alignContent={"center"}
-                p={5}
+                p={is600 ? 1 : 5}
                 border={3}
                 borderRadius={2}
                 borderColor={"#c4c4d4"}
@@ -232,7 +234,7 @@ export const Wishlist = () => {
                     bgcolor={"#c4c4d4"}
                     mb={3}
                     width={"100%"}
-                    p={2}
+                    p={is600 ? 1.5 : 2}
                   >
                     <ProductCard
                       item
@@ -247,14 +249,14 @@ export const Wishlist = () => {
                       isWishlistCard={true}
                     />
 
-                    <Stack paddingLeft={2} paddingRight={2} paddingBottom={2}>
+                    <Stack paddingLeft={is600 ? 1 : 2} paddingRight={is600 ? 1 : 2} paddingBottom={2}>
                       {/* note heading and icon */}
                       <Stack flexDirection={"row"} alignItems={"center"}>
-                        <Typography variant="h6" fontWeight={400}>
+                        <Typography variant={is480 ? "body1" : "h6"} fontWeight={400}>
                           Note
                         </Typography>
-                        <IconButton onClick={() => handleEdit(index)}>
-                          <EditOutlinedIcon />
+                        <IconButton onClick={() => handleEdit(index)} size={is480 ? "small" : "medium"}>
+                          <EditOutlinedIcon fontSize={is480 ? "small" : "medium"} />
                         </IconButton>
                       </Stack>
 

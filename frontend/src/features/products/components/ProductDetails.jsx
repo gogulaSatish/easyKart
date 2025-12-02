@@ -76,6 +76,7 @@ export const ProductDetails = () => {
   const is1420 = useMediaQuery(theme.breakpoints.down(1420));
   const is990 = useMediaQuery(theme.breakpoints.down(990));
   const is840 = useMediaQuery(theme.breakpoints.down(840));
+  const is600 = useMediaQuery(theme.breakpoints.down(600));
   const is500 = useMediaQuery(theme.breakpoints.down(500));
   const is480 = useMediaQuery(theme.breakpoints.down(480));
   const is387 = useMediaQuery(theme.breakpoints.down(387));
@@ -240,15 +241,15 @@ export const ProductDetails = () => {
             <Stack>
               {/* product details */}
               <Stack
-                width={is480 ? "auto" : is1420 ? "auto" : "88rem"}
-                p={is480 ? 2 : 0}
+                width={is480 ? "100%" : is1420 ? "auto" : "88rem"}
+                p={is480 ? 2 : is840 ? 1 : 0}
                 height={is840 ? "auto" : "50rem"}
-                rowGap={5}
+                rowGap={is480 ? 3 : 5}
                 mt={is840 ? 0 : 5}
                 justifyContent={"center"}
                 mb={5}
                 flexDirection={is840 ? "column" : "row"}
-                columnGap={is990 ? "2rem" : "5rem"}
+                columnGap={is990 ? "1.5rem" : is840 ? "2rem" : "5rem"}
               >
                 {/* left stack (images) */}
                 <Stack
@@ -367,11 +368,12 @@ export const ProductDetails = () => {
                         />
                       </Stack>
                     ) : (
-                      <div style={{ width: "100%" }}>
+                      <div style={{ width: is480 ? "100%" : is600 ? "300px" : "100%" }}>
                         <img
                           style={{
-                            width: "600px",
-                            height: "600px",
+                            width: is480 ? "100%" : is600 ? "300px" : "600px",
+                            height: is480 ? "auto" : is600 ? "300px" : "600px",
+                            aspectRatio: "1 / 1",
                             objectFit: "contain",
                           }}
                           src={product?.images[selectedImageIndex]}
@@ -383,11 +385,11 @@ export const ProductDetails = () => {
                 </Stack>
 
                 {/* right stack - about product */}
-                <Stack rowGap={"1.5rem"} width={is480 ? "100%" : "25rem"}>
+                <Stack rowGap={is480 ? 1 : "1.5rem"} width={is480 ? "100%" : is600 ? "20rem" : "25rem"}>
                   {/* title rating price */}
                   <Stack rowGap={".5rem"}>
                     {/* title */}
-                    <Typography variant="h4" fontWeight={600}>
+                    <Typography variant={is480 ? "h5" : "h4"} fontWeight={600}>
                       {product?.title}
                     </Typography>
 
@@ -401,8 +403,8 @@ export const ProductDetails = () => {
                         rowGap: "1rem",
                       }}
                     >
-                      <Rating value={averageRating} readOnly />
-                      <Typography>
+                      <Rating value={averageRating} readOnly size={is480 ? "small" : "medium"} />
+                      <Typography variant={is480 ? "caption" : "body2"}>
                         ({" "}
                         {totalReviews === 0
                           ? "No reviews"
@@ -412,6 +414,7 @@ export const ProductDetails = () => {
                         )
                       </Typography>
                       <Typography
+                        variant={is480 ? "caption" : "body2"}
                         color={
                           product?.stockQuantity <= 10
                             ? "error"
@@ -429,7 +432,7 @@ export const ProductDetails = () => {
                     </Stack>
 
                     {/* price */}
-                    <Typography variant="h5">${product?.price}</Typography>
+                    <Typography variant={is480 ? "h6" : "h5"}>${product?.price}</Typography>
                   </Stack>
 
                   {/* description */}

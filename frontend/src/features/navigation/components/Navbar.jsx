@@ -45,6 +45,8 @@ export const Navbar = ({ isProductList = false }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
   const is480 = useMediaQuery(theme.breakpoints.down(480));
+  const is600 = useMediaQuery(theme.breakpoints.down(600));
+  const is900 = useMediaQuery(theme.breakpoints.down(900));
 
   const wishlistItems = useSelector(selectWishlistItems);
   const isProductFilterOpen = useSelector(selectProductIsFilterOpen);
@@ -114,10 +116,12 @@ export const Navbar = ({ isProductList = false }) => {
     >
       <Toolbar
         sx={{
-          p: 1,
-          height: "4rem",
+          p: is600 ? 0.5 : 1,
+          height: is900 ? "3.5rem" : "4rem",
           display: "flex",
           justifyContent: "space-between",
+          flexWrap: is900 ? "wrap" : "nowrap",
+          gap: is900 ? 1 : 0,
         }}
       >
         <Typography
@@ -126,9 +130,9 @@ export const Navbar = ({ isProductList = false }) => {
           component="a"
           href="/"
           sx={{
-            mr: 2,
+            mr: is900 ? 0 : 2,
             display: { xs: "none", md: "flex" },
-            fontSize: "2.25rem",
+            fontSize: is900 ? "1.5rem" : "2.25rem",
             fontWeight: 900,
             letterSpacing: ".3rem",
             color: "inherit",
@@ -142,7 +146,7 @@ export const Navbar = ({ isProductList = false }) => {
           flexDirection={"row"}
           alignItems={"center"}
           justifyContent={"center"}
-          columnGap={2}
+          columnGap={is900 ? 0.5 : 2}
         >
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -192,13 +196,13 @@ export const Navbar = ({ isProductList = false }) => {
               </MenuItem>
             ))}
           </Menu>
-          <Typography variant="h6" fontWeight={300}>
+          <Typography variant={is900 ? "body2" : "h6"} fontWeight={300}>
             {is480
               ? `${userInfo?.name.toString().split(" ")[0]}`
               : `Hey👋, ${userInfo?.name}`}
           </Typography>
           {loggedInUser.isAdmin && (
-            <Button variant="contained" color="error">
+            <Button variant="contained" color="error" size={is900 ? "small" : "medium"}>
               Admin
             </Button>
           )}
@@ -231,8 +235,9 @@ export const Navbar = ({ isProductList = false }) => {
               variant="contained"
               onClick={handleToggleAdmin}
               disabled={loading}
+              size={is900 ? "small" : "medium"}
             >
-              {isAdmin ? "Switch to User" : "Switch to Admin"}
+              {isAdmin ? "User" : "Admin"}
             </Button>
             {/* {isProductList && (
               <IconButton onClick={handleToggleFilters}>

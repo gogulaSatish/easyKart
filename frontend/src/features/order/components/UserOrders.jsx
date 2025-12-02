@@ -40,6 +40,7 @@ export const UserOrders = () => {
   const is1200 = useMediaQuery(theme.breakpoints.down("1200"));
   const is768 = useMediaQuery(theme.breakpoints.down("768"));
   const is660 = useMediaQuery(theme.breakpoints.down(660));
+  const is600 = useMediaQuery(theme.breakpoints.down(600));
   const is480 = useMediaQuery(theme.breakpoints.down("480"));
 
   const cartItemAddStatus = useSelector(selectCartItemAddStatus);
@@ -93,7 +94,7 @@ export const UserOrders = () => {
           <Lottie animationData={loadingAnimation} />
         </Stack>
       ) : (
-        <Stack width={is1200 ? "auto" : "60rem"} p={is480 ? 2 : 4} mb={"5rem"}>
+        <Stack width={is1200 ? "100%" : "60rem"} p={is480 ? 1 : is600 ? 2 : 4} mb={"5rem"} px={is600 ? 1 : 4}>
           {/* heading and navigation */}
           <Stack flexDirection={"row"} columnGap={2}>
             {!is480 && (
@@ -108,12 +109,13 @@ export const UserOrders = () => {
             )}
 
             <Stack rowGap={1}>
-              <Typography variant="h4" fontWeight={500}>
+              <Typography variant={is480 ? "h5" : "h4"} fontWeight={500}>
                 Order history
               </Typography>
               <Typography
                 sx={{ wordWrap: "break-word" }}
                 color={"text.secondary"}
+                variant={is480 ? "body2" : "body1"}
               >
                 Check the status of recent orders, manage returns, and discover
                 similar products.
@@ -126,7 +128,7 @@ export const UserOrders = () => {
             mt={5}
             rowGap={5}
             border={3}
-            p={5}
+            p={is600 ? 2 : 5}
             borderRadius={2}
             borderColor={"#c4c4d4"}
             bgcolor={"rgba(0, 0, 0, 0.08)"}
@@ -155,32 +157,32 @@ export const UserOrders = () => {
                   >
                     <Stack
                       flexDirection={"row"}
-                      columnGap={4}
+                      columnGap={is768 ? 2 : 4}
                       rowGap={"1rem"}
                       flexWrap={"wrap"}
                     >
                       <Stack>
-                        <Typography>Order Number</Typography>
-                        <Typography color={"text.secondary"}>
+                        <Typography variant={is480 ? "caption" : "body2"}>Order Number</Typography>
+                        <Typography color={"text.secondary"} variant={is480 ? "caption" : "body2"}>
                           {order._id}
                         </Typography>
                       </Stack>
 
                       <Stack>
-                        <Typography>Date Placed</Typography>
-                        <Typography color={"text.secondary"}>
+                        <Typography variant={is480 ? "caption" : "body2"}>Date Placed</Typography>
+                        <Typography color={"text.secondary"} variant={is480 ? "caption" : "body2"}>
                           {new Date(order.createdAt).toDateString()}
                         </Typography>
                       </Stack>
 
                       <Stack>
-                        <Typography>Total Amount</Typography>
-                        <Typography>${order.total}</Typography>
+                        <Typography variant={is480 ? "caption" : "body2"}>Total Amount</Typography>
+                        <Typography variant={is480 ? "body2" : "body1"}>${order.total}</Typography>
                       </Stack>
                     </Stack>
 
                     <Stack>
-                      <Typography>Item: {order.item.length}</Typography>
+                      <Typography variant={is480 ? "caption" : "body2"}>Item: {order.item.length}</Typography>
                     </Stack>
                   </Stack>
 
@@ -190,11 +192,11 @@ export const UserOrders = () => {
                       <Stack
                         mt={2}
                         flexDirection={"row"}
-                        rowGap={is768 ? "2rem" : ""}
-                        columnGap={4}
+                        rowGap={is768 ? "1rem" : "2rem"}
+                        columnGap={is768 ? 2 : 4}
                         flexWrap={is768 ? "wrap" : "nowrap"}
                       >
-                        <Stack>
+                        <Stack width={is480 ? "60px" : is768 ? "100px" : "150px"} flexShrink={0}>
                           <img
                             style={{
                               width: "100%",
@@ -208,19 +210,20 @@ export const UserOrders = () => {
 
                         <Stack rowGap={1} width={"100%"}>
                           <Stack
-                            flexDirection={"row"}
+                            flexDirection={is480 ? "column" : "row"}
                             justifyContent={"space-between"}
+                            rowGap={is480 ? 1 : 0}
                           >
                             <Stack>
                               <Typography
-                                variant="h6"
-                                fontSize={"1rem"}
+                                variant={is480 ? "body2" : "h6"}
+                                fontSize={is480 ? ".9rem" : "1rem"}
                                 fontWeight={500}
                               >
                                 {product.product.title}
                               </Typography>
                               <Typography
-                                variant="body1"
+                                variant={is480 ? "caption" : "body1"}
                                 fontSize={".9rem"}
                                 color={"text.secondary"}
                               >
@@ -228,15 +231,16 @@ export const UserOrders = () => {
                               </Typography>
                               <Typography
                                 color={"text.secondary"}
+                                variant={is480 ? "caption" : "body2"}
                                 fontSize={".9rem"}
                               >
                                 Qty: {product.quantity}
                               </Typography>
                             </Stack>
-                            <Typography>${product.product.price}</Typography>
+                            <Typography variant={is480 ? "body2" : "body1"}>${product.product.price}</Typography>
                           </Stack>
 
-                          <Typography color={"text.secondary"}>
+                          <Typography color={"text.secondary"} variant={is480 ? "caption" : "body2"}>
                             {product.product.description}
                           </Typography>
 

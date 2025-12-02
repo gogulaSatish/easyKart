@@ -307,9 +307,9 @@ export const ProductList = () => {
               position: "fixed",
               backgroundColor: "white",
               height: "100vh",
-              padding: "1rem",
+              padding: is500 ? "0.75rem" : "1rem",
               overflowY: "scroll",
-              width: is500 ? "100vw" : "30rem",
+              width: is500 ? "100vw" : is600 ? "90vw" : "30rem",
               zIndex: 500,
             }}
             variants={{ show: { left: 0 }, hide: { left: -500 } }}
@@ -434,18 +434,22 @@ export const ProductList = () => {
             )}
 
             {/* products */}
-            <Stack rowGap={5} mt={is600 ? 2 : 0} sx={{ m: 3 }}>
+            <Stack
+              rowGap={is600 ? 3 : 5}
+              mt={is600 ? 2 : 0}
+              sx={{ m: is500 ? 1.5 : is600 ? 2 : 3 }}
+            >
               {/* sort options */}
               <Stack
                 flexDirection={"row"}
-                mr={"2rem"}
+                mr={is500 ? "1rem" : is600 ? "1.5rem" : "2rem"}
                 justifyContent={"flex-end"}
                 alignItems={"center"}
-                columnGap={5}
+                columnGap={is600 ? 2 : 5}
               >
                 <Stack
                   alignSelf={"flex-end"}
-                  width={"12rem"}
+                  width={is500 ? "10rem" : "12rem"}
                   sx={{ backgroundColor: "#c4c4d4" }}
                 >
                   <FormControl fullWidth>
@@ -474,7 +478,7 @@ export const ProductList = () => {
               {/* product slider */}
               <Box
                 sx={{
-                  p: 4,
+                  p: is500 ? 2 : is600 ? 2.5 : 4,
                   mb: 3,
                   backgroundColor: "rgba(0, 0, 0, 0.08)",
                   border: 3,
@@ -482,7 +486,10 @@ export const ProductList = () => {
                   borderColor: "#c4c4d4",
                 }}
               >
-                <Typography variant="h3" sx={{ mb: 3 }}>
+                <Typography
+                  variant={is500 ? "h5" : is600 ? "h4" : "h3"}
+                  sx={{ mb: 2 }}
+                >
                   Electronics{" "}
                 </Typography>
                 <Slider {...settings}>
@@ -503,7 +510,7 @@ export const ProductList = () => {
               {/* product slider */}
               <Box
                 sx={{
-                  p: 4,
+                  p: is500 ? 2 : is600 ? 2.5 : 4,
                   mb: 3,
                   backgroundColor: "rgba(0, 0, 0, 0.08)",
                   border: 3,
@@ -511,7 +518,10 @@ export const ProductList = () => {
                   borderColor: "#c4c4d4",
                 }}
               >
-                <Typography variant="h3" sx={{ mb: 3 }}>
+                <Typography
+                  variant={is500 ? "h5" : is600 ? "h4" : "h3"}
+                  sx={{ mb: 2 }}
+                >
                   Fashion & Accessories
                 </Typography>
 
@@ -532,7 +542,7 @@ export const ProductList = () => {
               {/* product slider */}
               <Box
                 sx={{
-                  p: 4,
+                  p: is500 ? 2 : is600 ? 2.5 : 4,
                   mb: 3,
                   backgroundColor: "rgba(0, 0, 0, 0.08)",
                   border: 3,
@@ -540,7 +550,10 @@ export const ProductList = () => {
                   borderColor: "#c4c4d4",
                 }}
               >
-                <Typography variant="h3" sx={{ mb: 3 }}>
+                <Typography
+                  variant={is500 ? "h5" : is600 ? "h4" : "h3"}
+                  sx={{ mb: 2 }}
+                >
                   Home & Living
                 </Typography>
 
@@ -561,7 +574,7 @@ export const ProductList = () => {
               {/* product slider */}
               <Box
                 sx={{
-                  p: 4,
+                  p: is500 ? 2 : is600 ? 2.5 : 4,
                   mb: 3,
                   backgroundColor: "rgba(0, 0, 0, 0.08)",
                   border: 3,
@@ -569,7 +582,10 @@ export const ProductList = () => {
                   borderColor: "#c4c4d4",
                 }}
               >
-                <Typography variant="h3" sx={{ mb: 3 }}>
+                <Typography
+                  variant={is500 ? "h5" : is600 ? "h4" : "h3"}
+                  sx={{ mb: 2 }}
+                >
                   Beauty & Personal Care
                 </Typography>
 
@@ -590,7 +606,7 @@ export const ProductList = () => {
               {/* product slider */}
               <Box
                 sx={{
-                  p: 4,
+                  p: is500 ? 2 : is600 ? 2.5 : 4,
                   mb: 3,
                   backgroundColor: "rgba(0, 0, 0, 0.08)",
                   border: 3,
@@ -598,7 +614,10 @@ export const ProductList = () => {
                   borderColor: "#c4c4d4",
                 }}
               >
-                <Typography variant="h3" sx={{ mb: 3 }}>
+                <Typography
+                  variant={is500 ? "h5" : is600 ? "h4" : "h3"}
+                  sx={{ mb: 2 }}
+                >
                   Automotive & Outdoors
                 </Typography>
 

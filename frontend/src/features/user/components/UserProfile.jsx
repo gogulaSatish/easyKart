@@ -49,6 +49,7 @@ export const UserProfile = () => {
 
   const is900 = useMediaQuery(theme.breakpoints.down(900));
   const is480 = useMediaQuery(theme.breakpoints.down(480));
+  const is600 = useMediaQuery(theme.breakpoints.down(600));
 
   useEffect(() => {
     window.scrollTo({
@@ -101,12 +102,13 @@ export const UserProfile = () => {
       height={"calc(100vh )"}
       justifyContent={"flex-start"}
       alignItems={"center"}
+      px={is600 ? 1 : 0}
     >
       <Stack
         component={is480 ? "" : Paper}
         elevation={1}
         width={is900 ? "100%" : "50rem"}
-        p={2}
+        p={is600 ? 1.5 : 2}
         mt={is480 ? 0 : 5}
         rowGap={2}
         sx={{ backgroundColor: "#c4c4d4" }}
@@ -115,7 +117,7 @@ export const UserProfile = () => {
         <Stack
           bgcolor={theme.palette.primary.light}
           color={theme.palette.primary.main}
-          p={2}
+          p={is480 ? 1.5 : 2}
           rowGap={1}
           borderRadius={".6rem"}
           justifyContent={"center"}
@@ -124,10 +126,10 @@ export const UserProfile = () => {
           <Avatar
             src="none"
             alt={userInfo?.name}
-            sx={{ width: 70, height: 70 }}
+            sx={{ width: is480 ? 50 : 70, height: is480 ? 50 : 70 }}
           ></Avatar>
-          <Typography>{userInfo?.name}</Typography>
-          <Typography>{userInfo?.email}</Typography>
+          <Typography variant={is480 ? "body2" : "body1"}>{userInfo?.name}</Typography>
+          <Typography variant={is480 ? "caption" : "body2"}>{userInfo?.email}</Typography>
         </Stack>
 
         {/* address section */}
@@ -139,7 +141,7 @@ export const UserProfile = () => {
             justifyContent={"center"}
             columnGap={1}
           >
-            <Typography variant="h6" fontWeight={400}>
+            <Typography variant={is480 ? "body1" : "h6"} fontWeight={400}>
               Manage addresses
             </Typography>
             <Button

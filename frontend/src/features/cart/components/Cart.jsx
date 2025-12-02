@@ -34,6 +34,7 @@ export const Cart = ({ checkout }) => {
   const theme = useTheme();
   const is480 = useMediaQuery(theme.breakpoints.down(480));
   const is900 = useMediaQuery(theme.breakpoints.down(900));
+  const is600 = useMediaQuery(theme.breakpoints.down(600));
 
   const cartItemRemoveStatus = useSelector(selectCartItemRemoveStatus);
   const dispatch = useDispatch();
@@ -72,8 +73,9 @@ export const Cart = ({ checkout }) => {
         alignSelf={"flex-start"}
         flexDirection={"row"}
         columnGap={1}
-        width={"50rem"}
+        width={is900 ? "auto" : "50rem"}
         mx={"auto"}
+        px={is600 ? 2 : 0}
         justifyContent={"flex-start"}
         alignItems={"center"}
       >
@@ -82,17 +84,19 @@ export const Cart = ({ checkout }) => {
             <ArrowBackIcon fontSize={is480 ? "medium" : "large"} />
           </IconButton>
         </motion.div>
-        <Typography variant="h4" fontWeight={500}>
+        <Typography variant={is480 ? "h5" : "h4"} fontWeight={500}>
           Your Cart items
         </Typography>
       </Stack>
       <Stack
-        width={is900 ? "auto" : "50rem"}
+        width={is900 ? "100%" : "50rem"}
         mt={"3rem"}
-        paddingLeft={checkout ? 0 : 2}
-        paddingRight={checkout ? 0 : 2}
+        paddingLeft={checkout ? is600 ? 2 : 0 : is600 ? 2 : 2}
+        paddingRight={checkout ? is600 ? 2 : 0 : is600 ? 2 : 2}
+        mx={is900 ? "auto" : 0}
+        px={is900 ? 2 : 0}
         rowGap={4}
-        py={5}
+        py={is600 ? 3 : 5}
         border={3}
         borderRadius={2}
         borderColor={"#c4c4d4"}
@@ -150,17 +154,17 @@ export const Cart = ({ checkout }) => {
           ) : (
             <>
               <Stack>
-                <Typography variant="h6" fontWeight={500}>
+                <Typography variant={is480 ? "body1" : "h6"} fontWeight={500}>
                   Subtotal
                 </Typography>
-                <Typography>Total items in cart {totalItems}</Typography>
-                <Typography variant="body1" color={"text.secondary"}>
+                <Typography variant={is480 ? "caption" : "body2"}>Total items in cart {totalItems}</Typography>
+                <Typography variant={is480 ? "caption" : "body1"} color={"text.secondary"}>
                   Shipping and taxes will be calculated at checkout.
                 </Typography>
               </Stack>
 
               <Stack>
-                <Typography variant="h6" fontWeight={500}>
+                <Typography variant={is480 ? "body1" : "h6"} fontWeight={500}>
                   ${subtotal}
                 </Typography>
               </Stack>
@@ -171,7 +175,7 @@ export const Cart = ({ checkout }) => {
         {/* checkout or continue shopping */}
         {!checkout && (
           <Stack rowGap={"1rem"}>
-            <Button variant="contained" component={Link} to="/checkout">
+            <Button variant="contained" component={Link} to="/checkout" fullWidth={is600}>
               Checkout
             </Button>
             <motion.div style={{ alignSelf: "center" }} whileHover={{ y: 2 }}>
