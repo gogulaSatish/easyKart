@@ -128,8 +128,12 @@ export const UserProfile = () => {
             alt={userInfo?.name}
             sx={{ width: is480 ? 50 : 70, height: is480 ? 50 : 70 }}
           ></Avatar>
-          <Typography variant={is480 ? "body2" : "body1"}>{userInfo?.name}</Typography>
-          <Typography variant={is480 ? "caption" : "body2"}>{userInfo?.email}</Typography>
+          <Typography variant={is480 ? "body2" : "body1"}>
+            {userInfo?.name}
+          </Typography>
+          <Typography variant={is480 ? "caption" : "body2"}>
+            {userInfo?.email}
+          </Typography>
         </Stack>
 
         {/* address section */}

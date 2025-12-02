@@ -202,7 +202,11 @@ export const Navbar = ({ isProductList = false }) => {
               : `Hey👋, ${userInfo?.name}`}
           </Typography>
           {loggedInUser.isAdmin && (
-            <Button variant="contained" color="error" size={is900 ? "small" : "medium"}>
+            <Button
+              variant="contained"
+              color="error"
+              size={is900 ? "small" : "medium"}
+            >
               Admin
             </Button>
           )}

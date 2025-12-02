@@ -97,16 +97,29 @@ export const CartItem = ({
           >
             {title}
           </Typography>
-          <Typography variant={is480 ? "caption" : "body2"} color={"text.secondary"}>
+          <Typography
+            variant={is480 ? "caption" : "body2"}
+            color={"text.secondary"}
+          >
             {brand}
           </Typography>
-          <Typography variant={is480 ? "caption" : "body2"} mt={1}>Quantity</Typography>
+          <Typography variant={is480 ? "caption" : "body2"} mt={1}>
+            Quantity
+          </Typography>
           <Stack flexDirection={"row"} alignItems={"center"}>
-            <IconButton onClick={handleRemoveQty} size={is480 ? "small" : "medium"}>
+            <IconButton
+              onClick={handleRemoveQty}
+              size={is480 ? "small" : "medium"}
+            >
               <RemoveIcon fontSize={is480 ? "small" : "medium"} />
             </IconButton>
-            <Typography variant={is480 ? "body2" : "body1"}>{quantity}</Typography>
-            <IconButton onClick={handleAddQty} size={is480 ? "small" : "medium"}>
+            <Typography variant={is480 ? "body2" : "body1"}>
+              {quantity}
+            </Typography>
+            <IconButton
+              onClick={handleAddQty}
+              size={is480 ? "small" : "medium"}
+            >
               <AddIcon fontSize={is480 ? "small" : "medium"} />
             </IconButton>
           </Stack>

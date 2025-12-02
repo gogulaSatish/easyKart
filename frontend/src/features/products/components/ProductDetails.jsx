@@ -368,7 +368,11 @@ export const ProductDetails = () => {
                         />
                       </Stack>
                     ) : (
-                      <div style={{ width: is480 ? "100%" : is600 ? "300px" : "100%" }}>
+                      <div
+                        style={{
+                          width: is480 ? "100%" : is600 ? "300px" : "100%",
+                        }}
+                      >
                         <img
                           style={{
                             width: is480 ? "100%" : is600 ? "300px" : "600px",
@@ -385,7 +389,10 @@ export const ProductDetails = () => {
                 </Stack>
 
                 {/* right stack - about product */}
-                <Stack rowGap={is480 ? 1 : "1.5rem"} width={is480 ? "100%" : is600 ? "20rem" : "25rem"}>
+                <Stack
+                  rowGap={is480 ? 1 : "1.5rem"}
+                  width={is480 ? "100%" : is600 ? "20rem" : "25rem"}
+                >
                   {/* title rating price */}
                   <Stack rowGap={".5rem"}>
                     {/* title */}
@@ -403,7 +410,11 @@ export const ProductDetails = () => {
                         rowGap: "1rem",
                       }}
                     >
-                      <Rating value={averageRating} readOnly size={is480 ? "small" : "medium"} />
+                      <Rating
+                        value={averageRating}
+                        readOnly
+                        size={is480 ? "small" : "medium"}
+                      />
                       <Typography variant={is480 ? "caption" : "body2"}>
                         ({" "}
                         {totalReviews === 0
@@ -432,7 +443,9 @@ export const ProductDetails = () => {
                     </Stack>
 
                     {/* price */}
-                    <Typography variant={is480 ? "h6" : "h5"}>${product?.price}</Typography>
+                    <Typography variant={is480 ? "h6" : "h5"}>
+                      ${product?.price}
+                    </Typography>
                   </Stack>
 
                   {/* description */}

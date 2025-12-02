@@ -144,7 +144,12 @@ export const ProductCard = ({
                   </motion.div>
                 )}
               </Stack>
-                <Typography variant={is408 ? "caption" : "body2"} color={"text.secondary"}>{brand}</Typography>
+              <Typography
+                variant={is408 ? "caption" : "body2"}
+                color={"text.secondary"}
+              >
+                {brand}
+              </Typography>
             </Stack>
 
             <Stack
@@ -154,7 +159,9 @@ export const ProductCard = ({
                 alignItems: "center",
               }}
             >
-              <Typography variant={is408 ? "body2" : "body1"}>${price}</Typography>
+              <Typography variant={is408 ? "body2" : "body1"}>
+                ${price}
+              </Typography>
               {!isWishlistCard
                 ? isProductAlreadyInCart
                   ? "Added to cart"
@@ -164,7 +171,13 @@ export const ProductCard = ({
                         whileTap={{ scale: 1 }}
                         onClick={(e) => handleAddToCart(e)}
                         style={{
-                          padding: is408 ? "6px 8px" : is488 ? "7px 10px" : is608 ? "8px 12px" : "10px 15px",
+                          padding: is408
+                            ? "6px 8px"
+                            : is488
+                            ? "7px 10px"
+                            : is608
+                            ? "8px 12px"
+                            : "10px 15px",
                           borderRadius: "3px",
                           outline: "none",
                           border: "none",

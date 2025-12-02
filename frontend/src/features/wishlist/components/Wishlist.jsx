@@ -175,7 +175,11 @@ export const Wishlist = () => {
           <Lottie animationData={loadingAnimation} />
         </Stack>
       ) : (
-        <Stack width={is1130 ? "100%" : "70rem"} rowGap={is480 ? 2 : 4} px={is600 ? 1 : 0}>
+        <Stack
+          width={is1130 ? "100%" : "70rem"}
+          rowGap={is480 ? 2 : 4}
+          px={is600 ? 1 : 0}
+        >
           {/* heading area and back button */}
           <Stack
             alignSelf={"flex-start"}
@@ -249,14 +253,26 @@ export const Wishlist = () => {
                       isWishlistCard={true}
                     />
 
-                    <Stack paddingLeft={is600 ? 1 : 2} paddingRight={is600 ? 1 : 2} paddingBottom={2}>
+                    <Stack
+                      paddingLeft={is600 ? 1 : 2}
+                      paddingRight={is600 ? 1 : 2}
+                      paddingBottom={2}
+                    >
                       {/* note heading and icon */}
                       <Stack flexDirection={"row"} alignItems={"center"}>
-                        <Typography variant={is480 ? "body1" : "h6"} fontWeight={400}>
+                        <Typography
+                          variant={is480 ? "body1" : "h6"}
+                          fontWeight={400}
+                        >
                           Note
                         </Typography>
-                        <IconButton onClick={() => handleEdit(index)} size={is480 ? "small" : "medium"}>
-                          <EditOutlinedIcon fontSize={is480 ? "small" : "medium"} />
+                        <IconButton
+                          onClick={() => handleEdit(index)}
+                          size={is480 ? "small" : "medium"}
+                        >
+                          <EditOutlinedIcon
+                            fontSize={is480 ? "small" : "medium"}
+                          />
                         </IconButton>
                       </Stack>
 

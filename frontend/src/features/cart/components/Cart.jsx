@@ -91,8 +91,8 @@ export const Cart = ({ checkout }) => {
       <Stack
         width={is900 ? "100%" : "50rem"}
         mt={"3rem"}
-        paddingLeft={checkout ? is600 ? 2 : 0 : is600 ? 2 : 2}
-        paddingRight={checkout ? is600 ? 2 : 0 : is600 ? 2 : 2}
+        paddingLeft={checkout ? (is600 ? 2 : 0) : is600 ? 2 : 2}
+        paddingRight={checkout ? (is600 ? 2 : 0) : is600 ? 2 : 2}
         mx={is900 ? "auto" : 0}
         px={is900 ? 2 : 0}
         rowGap={4}
@@ -157,8 +157,13 @@ export const Cart = ({ checkout }) => {
                 <Typography variant={is480 ? "body1" : "h6"} fontWeight={500}>
                   Subtotal
                 </Typography>
-                <Typography variant={is480 ? "caption" : "body2"}>Total items in cart {totalItems}</Typography>
-                <Typography variant={is480 ? "caption" : "body1"} color={"text.secondary"}>
+                <Typography variant={is480 ? "caption" : "body2"}>
+                  Total items in cart {totalItems}
+                </Typography>
+                <Typography
+                  variant={is480 ? "caption" : "body1"}
+                  color={"text.secondary"}
+                >
                   Shipping and taxes will be calculated at checkout.
                 </Typography>
               </Stack>
@@ -175,7 +180,12 @@ export const Cart = ({ checkout }) => {
         {/* checkout or continue shopping */}
         {!checkout && (
           <Stack rowGap={"1rem"}>
-            <Button variant="contained" component={Link} to="/checkout" fullWidth={is600}>
+            <Button
+              variant="contained"
+              component={Link}
+              to="/checkout"
+              fullWidth={is600}
+            >
               Checkout
             </Button>
             <motion.div style={{ alignSelf: "center" }} whileHover={{ y: 2 }}>

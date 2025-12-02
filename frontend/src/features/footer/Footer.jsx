@@ -56,11 +56,16 @@ export const Footer = () => {
         columnGap={is500 ? 0 : 2}
       >
         <Stack rowGap={"1rem"} padding={is500 ? "0.5rem" : "1rem"}>
-          <Typography variant={is700 ? "body1" : "h6"} fontSize={is700 ? "1rem" : "1.5rem"}>
+          <Typography
+            variant={is700 ? "body1" : "h6"}
+            fontSize={is700 ? "1rem" : "1.5rem"}
+          >
             Exclusive
           </Typography>
           <Typography variant={is700 ? "body2" : "h6"}>Subscribe</Typography>
-          <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>Get 10% off your first order</Typography>
+          <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>
+            Get 10% off your first order
+          </Typography>
           <TextField
             placeholder="Enter your email"
             size={is500 ? "small" : "medium"}
@@ -68,10 +73,18 @@ export const Footer = () => {
             InputProps={{
               endAdornment: (
                 <IconButton size={is500 ? "small" : "medium"}>
-                  <SendIcon sx={{ color: theme.palette.primary.light, fontSize: is500 ? "1.2rem" : "1.5rem" }} />
+                  <SendIcon
+                    sx={{
+                      color: theme.palette.primary.light,
+                      fontSize: is500 ? "1.2rem" : "1.5rem",
+                    }}
+                  />
                 </IconButton>
               ),
-              style: { color: "whitesmoke", fontSize: is500 ? "0.9rem" : "1rem" },
+              style: {
+                color: "whitesmoke",
+                fontSize: is500 ? "0.9rem" : "1rem",
+              },
             }}
           />
         </Stack>
@@ -81,32 +94,64 @@ export const Footer = () => {
           <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>
             77 Oak Street, Apt. 201, Springfield, IL 62704.
           </Typography>
-          <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>exclusive@gmail.com</Typography>
-          <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>+1-99999-9999</Typography>
+          <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>
+            exclusive@gmail.com
+          </Typography>
+          <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>
+            +1-99999-9999
+          </Typography>
         </Stack>
 
         <Stack rowGap={"1rem"} padding={is500 ? "0.5rem" : "1rem"}>
           <Typography variant={is700 ? "body2" : "h6"}>Account</Typography>
-          <Typography sx={labelStyles} component={Link} to={"/profile"} variant={is500 ? "caption" : "body2"}>
+          <Typography
+            sx={labelStyles}
+            component={Link}
+            to={"/profile"}
+            variant={is500 ? "caption" : "body2"}
+          >
             My Account
           </Typography>
-          <Typography sx={labelStyles} component={Link} to={"/cart"} variant={is500 ? "caption" : "body2"}>
+          <Typography
+            sx={labelStyles}
+            component={Link}
+            to={"/cart"}
+            variant={is500 ? "caption" : "body2"}
+          >
             Cart
           </Typography>
-          <Typography sx={labelStyles} component={Link} to={"/wishlist"} variant={is500 ? "caption" : "body2"}>
+          <Typography
+            sx={labelStyles}
+            component={Link}
+            to={"/wishlist"}
+            variant={is500 ? "caption" : "body2"}
+          >
             Wishlist
           </Typography>
-          <Typography sx={labelStyles} component={Link} to={"/"} variant={is500 ? "caption" : "body2"}>
+          <Typography
+            sx={labelStyles}
+            component={Link}
+            to={"/"}
+            variant={is500 ? "caption" : "body2"}
+          >
             Shop
           </Typography>
         </Stack>
 
         <Stack rowGap={"1rem"} padding={is500 ? "0.5rem" : "1rem"}>
           <Typography variant={is700 ? "body2" : "h6"}>Quick Links</Typography>
-          <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>Privacy Policy</Typography>
-          <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>Terms Of Use</Typography>
-          <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>FAQ</Typography>
-          <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>Contact</Typography>
+          <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>
+            Privacy Policy
+          </Typography>
+          <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>
+            Terms Of Use
+          </Typography>
+          <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>
+            FAQ
+          </Typography>
+          <Typography sx={labelStyles} variant={is500 ? "caption" : "body2"}>
+            Contact
+          </Typography>
         </Stack>
 
         <Stack rowGap={"1rem"} padding={is500 ? "0.5rem" : "1rem"}>
@@ -118,7 +163,10 @@ export const Footer = () => {
             Save $3 with App New User Only
           </Typography>
           <Stack flexDirection={"row"} columnGap={".5rem"}>
-            <Box width={is500 ? "70px" : "100px"} height={is500 ? "70px" : "100px"}>
+            <Box
+              width={is500 ? "70px" : "100px"}
+              height={is500 ? "70px" : "100px"}
+            >
               <img
                 src={QRCodePng}
                 height={"100%"}
@@ -146,25 +194,45 @@ export const Footer = () => {
             </Stack>
           </Stack>
 
-          <Stack mt={0.6} flexDirection={"row"} columnGap={is500 ? "1rem" : "2rem"}>
+          <Stack
+            mt={0.6}
+            flexDirection={"row"}
+            columnGap={is500 ? "1rem" : "2rem"}
+          >
             <MotionConfig whileHover={{ scale: 1.1 }} whileTap={{ scale: 1 }}>
               <motion.img
-                style={{ cursor: "pointer", width: is500 ? "20px" : "24px", height: is500 ? "20px" : "24px" }}
+                style={{
+                  cursor: "pointer",
+                  width: is500 ? "20px" : "24px",
+                  height: is500 ? "20px" : "24px",
+                }}
                 src={facebookPng}
                 alt="Facebook"
               />
               <motion.img
-                style={{ cursor: "pointer", width: is500 ? "20px" : "24px", height: is500 ? "20px" : "24px" }}
+                style={{
+                  cursor: "pointer",
+                  width: is500 ? "20px" : "24px",
+                  height: is500 ? "20px" : "24px",
+                }}
                 src={twitterPng}
                 alt="Twitter"
               />
               <motion.img
-                style={{ cursor: "pointer", width: is500 ? "20px" : "24px", height: is500 ? "20px" : "24px" }}
+                style={{
+                  cursor: "pointer",
+                  width: is500 ? "20px" : "24px",
+                  height: is500 ? "20px" : "24px",
+                }}
                 src={instagramPng}
                 alt="Instagram"
               />
               <motion.img
-                style={{ cursor: "pointer", width: is500 ? "20px" : "24px", height: is500 ? "20px" : "24px" }}
+                style={{
+                  cursor: "pointer",
+                  width: is500 ? "20px" : "24px",
+                  height: is500 ? "20px" : "24px",
+                }}
                 src={linkedinPng}
                 alt="Linkedin"
               />
