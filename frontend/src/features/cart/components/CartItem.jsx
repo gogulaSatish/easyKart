@@ -128,7 +128,6 @@ export const CartItem = ({
 
       {/* price and remove button */}
       <Stack
-        justifyContent={"space-evenly"}
         alignSelf={is600 ? "flex-end" : is552 ? "flex-end" : ""}
         height={is600 ? "auto" : "100%"}
         rowGap={"1rem"}
