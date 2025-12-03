@@ -52,7 +52,7 @@ export const CartItem = ({
   return (
     <Stack
       boxShadow={7}
-      bgcolor={"#c4c4d4"}
+      bgcolor={"white"}
       component={is900 ? "" : Paper}
       p={is900 ? 1.5 : is600 ? 1.5 : 2}
       elevation={1}

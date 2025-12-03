@@ -96,7 +96,7 @@ export const ProductCard = ({
               ? "520px"
               : "525px",
             margin: "0 auto",
-            backgroundColor: isAdminCard ? "tranparent" : "#c4c4d4",
+            backgroundColor: isAdminCard ? "transparent" : "white",
             boxShadow: isAdminCard ? "none" : 7,
           }}
           onClick={() => navigate(`/product-details/${id}`)}

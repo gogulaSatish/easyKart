@@ -163,7 +163,7 @@ export const Wishlist = () => {
       mt={is480 ? 3 : 5}
       mb={"14rem"}
       alignItems={"center"}
-      px={is600 ? 1 : 0}
+      bgcolor={"white"}
     >
       {wishlistFetchStatus === "pending" ? (
         <Stack
@@ -235,7 +235,7 @@ export const Wishlist = () => {
                     elevation={1}
                     borderRadius={2}
                     boxShadow={7}
-                    bgcolor={"#c4c4d4"}
+                    bgcolor={"white"}
                     mb={3}
                     width={"100%"}
                     p={is600 ? 1.5 : 2}

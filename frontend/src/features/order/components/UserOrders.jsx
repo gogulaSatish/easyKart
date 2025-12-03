@@ -147,7 +147,7 @@ export const UserOrders = () => {
                   elevation={1}
                   rowGap={2}
                   sx={{
-                    backgroundColor: "#c4c4d4",
+                    backgroundColor: "white",
                     boxShadow: 7,
                     borderRadius: 2,
                     p: 3,

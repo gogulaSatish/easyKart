@@ -239,7 +239,7 @@ export const AdminDashBoard = () => {
           alignItems={"center"}
           columnGap={5}
         >
-          <Stack alignSelf={"flex-end"} width={"12rem"} bgcolor={"#c4c4d4"}>
+          <Stack alignSelf={"flex-end"} width={"12rem"} bgcolor={"white"}>
             <FormControl fullWidth>
               <InputLabel id="sort-dropdown">Sort</InputLabel>
               <Select
@@ -271,7 +271,7 @@ export const AdminDashBoard = () => {
         >
           {products.map((product) => (
             <Stack
-              backgroundColor="#c4c4d4"
+              backgroundColor="white"
               py={2}
               borderRadius={2}
               boxShadow={7}

@@ -73,7 +73,7 @@ export const ReviewItem = ({
       width={"100%"}
       component={Paper}
       borderRadius={".8px"}
-      bgcolor={"#c4c4d4"}
+      bgcolor={"white"}
     >
       {/* user , rating and created at*/}
       <Stack

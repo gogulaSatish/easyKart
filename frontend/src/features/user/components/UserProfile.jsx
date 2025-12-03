@@ -72,7 +72,7 @@ export const UserProfile = () => {
     } else if (addressUpdateStatus === "rejected") {
       toast.error("Error updating address, please try again later");
     }
-  }, [addressUpdateStatus]);
+            sx={{ backgroundColor: "white" }}
 
   useEffect(() => {
     if (addressDeleteStatus === "fulfilled") {
@@ -111,7 +111,7 @@ export const UserProfile = () => {
         p={is600 ? 1.5 : 2}
         mt={is480 ? 0 : 5}
         rowGap={2}
-        sx={{ backgroundColor: "#c4c4d4" }}
+        sx={{ backgroundColor: "white" }}
       >
         {/* user details - [name ,email ] */}
         <Stack

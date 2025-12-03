@@ -453,7 +453,7 @@ export const ProductList = () => {
                 <Stack
                   alignSelf={"flex-end"}
                   width={is500 ? "10rem" : "12rem"}
-                  sx={{ backgroundColor: "#c4c4d4" }}
+                  sx={{ backgroundColor: "white" }}
                 >
                   <FormControl fullWidth>
                     <InputLabel id="sort-dropdown" sx={{ color: "black" }}>
