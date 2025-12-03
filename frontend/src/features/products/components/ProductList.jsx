@@ -495,19 +495,23 @@ export const ProductList = () => {
                 >
                   Electronics{" "}
                 </Typography>
-                <Slider {...settings}>
-                  {electronicsFiltered.map((product) => (
-                    <ProductCard
-                      key={product._id}
-                      id={product._id}
-                      title={product.title}
-                      thumbnail={product.thumbnail}
-                      brand={product.brand.name}
-                      price={product.price}
-                      handleAddRemoveFromWishlist={handleAddRemoveFromWishlist}
-                    />
-                  ))}
-                </Slider>
+                <Stack width={is500 ? "80%" : "100%"} mx="auto">
+                  <Slider {...settings}>
+                    {electronicsFiltered.map((product) => (
+                      <ProductCard
+                        key={product._id}
+                        id={product._id}
+                        title={product.title}
+                        thumbnail={product.thumbnail}
+                        brand={product.brand.name}
+                        price={product.price}
+                        handleAddRemoveFromWishlist={
+                          handleAddRemoveFromWishlist
+                        }
+                      />
+                    ))}
+                  </Slider>
+                </Stack>
               </Box>
 
               {/* product slider */}
@@ -528,19 +532,23 @@ export const ProductList = () => {
                   Fashion & Accessories
                 </Typography>
 
-                <Slider {...settings}>
-                  {fashionFiltered.map((product) => (
-                    <ProductCard
-                      key={product._id}
-                      id={product._id}
-                      title={product.title}
-                      thumbnail={product.thumbnail}
-                      brand={product.brand.name}
-                      price={product.price}
-                      handleAddRemoveFromWishlist={handleAddRemoveFromWishlist}
-                    />
-                  ))}
-                </Slider>
+                <Stack width={is500 ? "80%" : "100%"} mx="auto">
+                  <Slider {...settings}>
+                    {fashionFiltered.map((product) => (
+                      <ProductCard
+                        key={product._id}
+                        id={product._id}
+                        title={product.title}
+                        thumbnail={product.thumbnail}
+                        brand={product.brand.name}
+                        price={product.price}
+                        handleAddRemoveFromWishlist={
+                          handleAddRemoveFromWishlist
+                        }
+                      />
+                    ))}
+                  </Slider>
+                </Stack>
               </Box>
               {/* product slider */}
               <Box
@@ -560,19 +568,23 @@ export const ProductList = () => {
                   Home & Living
                 </Typography>
 
-                <Slider {...settings}>
-                  {homeAndLivingFiltered.map((product) => (
-                    <ProductCard
-                      key={product._id}
-                      id={product._id}
-                      title={product.title}
-                      thumbnail={product.thumbnail}
-                      brand={product.brand.name}
-                      price={product.price}
-                      handleAddRemoveFromWishlist={handleAddRemoveFromWishlist}
-                    />
-                  ))}
-                </Slider>
+                <Stack width={is500 ? "80%" : "100%"} mx="auto">
+                  <Slider {...settings}>
+                    {homeAndLivingFiltered.map((product) => (
+                      <ProductCard
+                        key={product._id}
+                        id={product._id}
+                        title={product.title}
+                        thumbnail={product.thumbnail}
+                        brand={product.brand.name}
+                        price={product.price}
+                        handleAddRemoveFromWishlist={
+                          handleAddRemoveFromWishlist
+                        }
+                      />
+                    ))}
+                  </Slider>
+                </Stack>
               </Box>
               {/* product slider */}
               <Box
@@ -592,19 +604,23 @@ export const ProductList = () => {
                   Beauty & Personal Care
                 </Typography>
 
-                <Slider {...settings}>
-                  {beautyFiltered.map((product) => (
-                    <ProductCard
-                      key={product._id}
-                      id={product._id}
-                      title={product.title}
-                      thumbnail={product.thumbnail}
-                      brand={product.brand.name}
-                      price={product.price}
-                      handleAddRemoveFromWishlist={handleAddRemoveFromWishlist}
-                    />
-                  ))}
-                </Slider>
+                <Stack width={is500 ? "80%" : "100%"} mx="auto">
+                  <Slider {...settings}>
+                    {beautyFiltered.map((product) => (
+                      <ProductCard
+                        key={product._id}
+                        id={product._id}
+                        title={product.title}
+                        thumbnail={product.thumbnail}
+                        brand={product.brand.name}
+                        price={product.price}
+                        handleAddRemoveFromWishlist={
+                          handleAddRemoveFromWishlist
+                        }
+                      />
+                    ))}
+                  </Slider>
+                </Stack>
               </Box>
               {/* product slider */}
               <Box
@@ -624,19 +640,23 @@ export const ProductList = () => {
                   Automotive & Outdoors
                 </Typography>
 
-                <Slider {...settings}>
-                  {automotiveFiltered.map((product) => (
-                    <ProductCard
-                      key={product._id}
-                      id={product._id}
-                      title={product.title}
-                      thumbnail={product.thumbnail}
-                      brand={product.brand.name}
-                      price={product.price}
-                      handleAddRemoveFromWishlist={handleAddRemoveFromWishlist}
-                    />
-                  ))}
-                </Slider>
+                <Stack width={is500 ? "80%" : "100%"} mx="auto">
+                  <Slider {...settings}>
+                    {automotiveFiltered.map((product) => (
+                      <ProductCard
+                        key={product._id}
+                        id={product._id}
+                        title={product.title}
+                        thumbnail={product.thumbnail}
+                        brand={product.brand.name}
+                        price={product.price}
+                        handleAddRemoveFromWishlist={
+                          handleAddRemoveFromWishlist
+                        }
+                      />
+                    ))}
+                  </Slider>
+                </Stack>
               </Box>
               {/* pagination */}
               {/* <Stack
