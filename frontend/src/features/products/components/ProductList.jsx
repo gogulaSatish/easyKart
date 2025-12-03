@@ -107,22 +107,25 @@ export const ProductList = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4, // show 4 products at a time
-    slidesToScroll: 1, // scroll 1 product at a time
-    autoplay: false, // auto swipe enabled
-    autoplaySpeed: 2000, // 3 seconds delay
+    slidesToShow: is500 ? 1 : is600 ? 2 : is800 ? 3 : 4,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 2000,
     responsive: [
-      // make responsive adjustments
       {
-        breakpoint: 1024,
+        breakpoint: 1200,
         settings: { slidesToShow: 3 },
+      },
+      {
+        breakpoint: 800,
+        settings: { slidesToShow: 2 },
       },
       {
         breakpoint: 600,
         settings: { slidesToShow: 2 },
       },
       {
-        breakpoint: 480,
+        breakpoint: 500,
         settings: { slidesToShow: 1 },
       },
     ],
